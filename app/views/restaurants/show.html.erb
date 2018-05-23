@@ -1,0 +1,29 @@
+<h1><%= @restaurant.name %></h1>
+
+<div>
+  <%= @restaurant.name %>
+  <%= @restaurant.address %>
+  <%= @restaurant.phone_number %>
+  <%= @restaurant.category %>
+</div>
+
+<div>
+  <h2>reviews</h2>
+  <ul>
+    <% @restaurant.reviews.each do |review| %>
+      <li>
+        <% (review.rating).times do %>
+          <i class="fas fa-utensils"></i>
+        <% end %>
+        <%= review.content %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div>
+  <%= link_to 'back to list', restaurants_path, class: 'btn btn-danger btn-lg'%>
+</div>
+
+
+
+<%= render "reviews/new" %>
